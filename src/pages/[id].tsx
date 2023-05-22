@@ -17,7 +17,6 @@ export const getStaticProps = async ({
 }: {
   params: { id: string };
 }) => {
-  throw new Error("error");
   return {
     props: {
       title: params.id,
