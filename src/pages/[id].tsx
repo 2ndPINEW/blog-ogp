@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths } from "next";
 import Head from "next/head";
 
 type Props = {
@@ -12,10 +12,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps = async ({
+  params,
+}: {
+  params: { id: string };
+}) => {
   return {
     props: {
-      title: "og",
+      title: params.id,
     },
     revalidate: 60,
   };
